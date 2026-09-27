@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z Shape Layout</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: #f3f3f3;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #f4d700;
+            color: #d71f26;
+            text-align: center;
+            padding: 18px 20px;
+            border-bottom: 3px solid #000;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .z-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1.2fr 1.6fr 1.2fr;
+            gap: 0;
+            width: 100%;
+            height: calc(100vh - 74px);
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            border: 3px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+
+        }
+
+        .a {
+            grid-column: 1 / span 3;
+            grid-row: 1;
+            background: #2ecc71;
+        }
+
+        .b {
+            grid-column: 1 / span 3;
+            grid-row: 2;
+            background: #e74c3c;
+        }
+
+        .c {
+            grid-column: 1;
+            grid-row: 3;
+            background: #f39c12;
+        }
+
+        .d {
+            grid-column: 2;
+            grid-row: 3;
+            background: #8e44ad;
+        }
+
+        .e {
+            grid-column: 3;
+            grid-row: 3;
+            background: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .z-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 120px);
+                height: auto;
+            }
+
+            .a, .b, .c, .d, .e, .f {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>header</h1>
+    </header>
+
+    <main class="z-layout">
+        <div class="box a"></div>
+        <div class="box b"></div>
+        <div class="box c"></div>
+        <div class="box d"></div>
+        <div class="box e"></div>
+    </main>
+</body>
+</html>
